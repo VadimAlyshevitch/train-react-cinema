@@ -1,17 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import MovieItem from './Components/Movie/MovieItem'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const movie ={
+  title : 'cinema',
+  vote_average : 10,
+  image : 'https://ic.pics.livejournal.com/alex_delarg/43136584/99375/99375_original.jpg'
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function Image(props) {
+  return (
+    <img className="Poster" src={props.src} alt={props.alt} title={props.title}/>
+  )
+}
+function MovieItem(props){
+  console.log('props = ', props);
+  const { data: {title,  vote_average, image} } = props // прикол
+  
+  return (
+    <div>
+      <Image src={image} alt={title} title={title}/>
+    <p>
+      Name: {title}
+    </p>
+    <p>
+  Vote Avarage:  {vote_average}
+    </p>
+    </div>
+
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <MovieItem data={movie} />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));

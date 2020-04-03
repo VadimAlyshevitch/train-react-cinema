@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.Poster {
+  height: auto;
+  width: 100%;
+}
+.Deskription-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Main-page {
+  width: 300px;
+}
+
+.btn--like {
+  background: red;
+  color: white;
+}

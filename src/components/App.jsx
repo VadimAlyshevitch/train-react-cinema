@@ -16,7 +16,8 @@ class App extends React.Component {
 
 
     this.state = {
-      movies : moviesData
+      movies : moviesData,
+      moviesWillWatch : []
     }
   }
 
@@ -32,17 +33,50 @@ class App extends React.Component {
   
   }
 
+  addMovieWillWatch = movie => {
+    // this.state.moviesWillWatch.push(movie)
+    //создать новую ссылку и в нее поместить с предыдущего состояния создать ссылку этого массива [...]
+
+    const updateMoviesWillWatch = [...this.state.moviesWillWatch]
+    // в полученную ссылку запушить выбранный фильм
+    updateMoviesWillWatch.push(movie)
+
+   //  и после этого уже задать сетстейт
+   this.setState({
+    moviesWillWatch : updateMoviesWillWatch
+   })
+  }
+
   render(){
     return(
-        <div>{
-          this.state.movies.map((movie)=>{
-          return <MovieItem
-           key={movie.id}
-           movie={movie}
-           removeMovie={this.removeMovie}
-           />
+    <div className="container">
+      <div className="row">
+      <div className="col-9">
+        <div className="row">
+          
+          {
+            this.state.movies.map((movie)=>{
+            return (
+            <div className="col-6 mb-4" key={movie.id}>
+                < MovieItem
+                
+                movie={movie}
+                removeMovie={this.removeMovie}
+                addMovieWillWatch={this.addMovieWillWatch}
+                />
+             </div>
+            )
           })}
+         
+
+        </div>
+      </div>
+          <div className="col-3">
+        <p>Will Watch: {this.state.moviesWillWatch.length}</p>
           </div>
+     </div>
+    </div>
+       
           
     )
   }

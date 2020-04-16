@@ -1,0 +1,55 @@
+.mainItems {
+    display: grid;
+    grid-template-areas:
+            "search search"
+            "headerNav headerNav"
+            "main sidebar"
+            "footerNav footerNav";
+    grid-template-columns: 9fr 3fr;
+    grid-template-rows: 75px 65px auto 65px;
+    margin: 15px;
+
+}
+
+.containerSearch{
+    grid-area: search;
+    margin-top: 5px;
+
+}
+
+.mainTabsHeader {
+    margin-top: 17.5px;
+    grid-area: headerNav;
+
+}
+
+.mainTabsFooter {
+    margin: 10px;
+    grid-area: footerNav;
+
+}
+
+.mainItemsElement {
+    grid-area: main;
+    /*grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));*/
+    grid-gap: 0.5em;
+    /*grid-template-columns: 3fr 3fr 3fr;*/
+}
+
+.mainItemsElementMov {
+    grid-area: sidebar;
+    /*grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));*/
+    grid-template-columns: 3fr;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btnTrue {
+    background-color: cornflowerblue;
+    color: gold;
+}
